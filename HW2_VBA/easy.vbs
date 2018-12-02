@@ -20,18 +20,13 @@ Dim ws As Worksheet
     rCount = Cells(Rows.Count, "A").End(xlUp).Row
         
         For i = 2 To rCount
-            ' Once new ticker is found, it will print out results in new row
+        ' Once new ticker is found, will print out results in new row
             If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then
-
-                ' final total and new ticker is found
                 total = total + ws.Cells(i, 7).Value
-                ' Ticker symbol and total value
                 ws.Range("I" & 2 + j).Value = ws.Cells(i, 1).Value
                 ws.Range("J" & 2 + j).Value = total
-                ' Total reset for new stock count and move to next row
                 total = 0
                 j = j + 1
-            ' Total runs until a new ticker is found
             Else
                 total = total + ws.Cells(i, 7).Value
 
